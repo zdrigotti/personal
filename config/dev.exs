@@ -26,7 +26,8 @@ config :personal, PersonalWeb.Endpoint,
   secret_key_base: "uh1AMCbZwve0/26orFRj1pmkLpP5BXDS9c7RKCGFRBma2+YpkeLwBRdOq+YE+UFb",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
