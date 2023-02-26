@@ -14,11 +14,13 @@ defmodule PersonalWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PersonalWeb do
-    pipe_through :browser
+  live_session :default do
+    scope "/", PersonalWeb do
+      pipe_through :browser
 
-    live "/", Live.Home
-    live "/recipes", Live.Recipes
+      live "/", Live.Home
+      live "/recipes", Live.Recipes
+    end
   end
 
   # Other scopes may use custom stacks.
