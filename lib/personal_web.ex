@@ -45,7 +45,7 @@ defmodule PersonalWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {PersonalWeb.LayoutView, "live.html"}
+        layout: {PersonalWeb.LayoutView, :live}
 
       unquote(view_helpers())
     end
