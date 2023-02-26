@@ -49,7 +49,7 @@ if config_env() == :prod do
       """
 
   host = System.get_env("PHX_HOST") || "zachrigotti.com"
-  port = String.to_integer(System.get_env("PORT") || "443")
+  port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :personal, PersonalWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
