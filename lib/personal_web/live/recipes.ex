@@ -1,6 +1,6 @@
-defmodule PersonalWeb.Live.Home do
+defmodule PersonalWeb.Live.Recipes do
   @moduledoc """
-  LiveView for the home page
+  LiveView for the recipes page
   """
 
   use PersonalWeb, :live_view
@@ -10,7 +10,7 @@ defmodule PersonalWeb.Live.Home do
   def render(assigns) do
     ~H"""
     <Navbar.render socket={@socket} />
-    <h1 class="font-bold text-3xl">Zach Rigotti</h1>
+    <h1 class="font-bold text-3xl">Recipes</h1>
     """
   end
 end
