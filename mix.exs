@@ -7,7 +7,6 @@ defmodule Personal.MixProject do
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -33,23 +32,26 @@ defmodule Personal.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.6.16"},
-      {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.6"},
-      {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 3.0"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.18.16"},
-      {:floki, ">= 0.30.0", only: :test},
-      {:phoenix_live_dashboard, "~> 0.7.2"},
-      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
-      {:swoosh, "~> 1.3"},
-      {:telemetry_metrics, "~> 0.6"},
-      {:telemetry_poller, "~> 1.0"},
-      {:gettext, "~> 0.18"},
+      {:ecto, "~> 3.12.2"},
+      {:ecto_sql, "~> 3.12.0"},
+      {:esbuild, "~> 0.8.1", runtime: Mix.env() == :dev},
+      {:floki, ">= 0.36.2", only: :test},
+      {:gettext, "~> 0.26.1"},
       {:jason, "~> 1.2"},
+      {:phoenix, "~> 1.7.14"},
+      {:phoenix_ecto, "~> 4.6.2"},
+      {:phoenix_html, "~> 4.1.1"},
+      {:phoenix_html_helpers, "~> 1.0"},
+      {:phoenix_view, "~> 2.0"},
+      {:phoenix_live_dashboard, "~> 0.8.4"},
+      {:phoenix_live_reload, "~> 1.5.3", only: :dev},
+      {:phoenix_live_view, "~> 0.20.17"},
       {:plug_cowboy, "~> 2.5"},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:postgrex, ">= 0.0.0"},
+      {:swoosh, "~> 1.16.12"},
+      {:tailwind, "~> 0.2.3", runtime: Mix.env() == :dev},
+      {:telemetry_metrics, "~> 1.0.0"},
+      {:telemetry_poller, "~> 1.1.0"}
     ]
   end
 

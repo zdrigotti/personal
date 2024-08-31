@@ -20,7 +20,7 @@ defmodule PersonalWeb.Endpoint do
     at: "/",
     from: :personal,
     gzip: false,
-    only: ~w(assets fonts images favicon.ico robots.txt)
+    only: PersonalWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

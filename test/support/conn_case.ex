@@ -28,6 +28,8 @@ defmodule PersonalWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint PersonalWeb.Endpoint
+
+      use PersonalWeb, :verified_routes
     end
   end
 

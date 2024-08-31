@@ -17,13 +17,17 @@ defmodule PersonalWeb do
   and import those modules here.
   """
 
+  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
+
   def controller do
     quote do
       use Phoenix.Controller, namespace: PersonalWeb
 
       import Plug.Conn
-      import PersonalWeb.Gettext
+      use Gettext, backend: PersonalWeb.Gettext
       alias PersonalWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
     end
   end
 
@@ -80,14 +84,16 @@ defmodule PersonalWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import PersonalWeb.Gettext
+      use Gettext, backend: PersonalWeb.Gettext
     end
   end
 
   defp view_helpers do
     quote do
       # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      import Phoenix.HTML
+      import Phoenix.HTML.Form
+      use PhoenixHTMLHelpers
 
       # Import LiveView and .heex helpers (live_render, live_patch, <.form>, etc)
       import Phoenix.LiveView.Helpers
@@ -96,8 +102,19 @@ defmodule PersonalWeb do
       import Phoenix.View
 
       import PersonalWeb.ErrorHelpers
-      import PersonalWeb.Gettext
+      use Gettext, backend: PersonalWeb.Gettext
       alias PersonalWeb.Router.Helpers, as: Routes
+
+      unquote(verified_routes())
+    end
+  end
+
+  def verified_routes do
+    quote do
+      use Phoenix.VerifiedRoutes,
+        endpoint: PersonalWeb.Endpoint,
+        router: PersonalWeb.Router,
+        statics: PersonalWeb.static_paths()
     end
   end
 
