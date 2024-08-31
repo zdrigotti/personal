@@ -5,16 +5,14 @@ defmodule PersonalWeb.Components.Navbar do
 
   use PersonalWeb, :component
 
-  alias PersonalWeb.Live.{Home, Recipes}
-
   def render(assigns) do
     ~H"""
     <nav>
-      <.link navigate={Routes.live_path(@socket, Home)}>
+      <.link navigate={~p"/"}>
         Home
       </.link>
 
-      <.link navigate={Routes.live_path(@socket, Recipes)}>
+      <.link navigate={~p"/recipes"}>
         Recipes
       </.link>
     </nav>
